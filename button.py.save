@@ -1,0 +1,43 @@
+
+from gpiozero import LED, Button
+from signal import pause
+
+
+led = LED(17)
+button = Button(2)
+
+button.when_pressed = say_my_name
+button.when_released = led.off
+
+
+def dash():
+        led.on()
+        sleep(1.5)
+        led.off()
+        sleep(1)
+
+def dot():
+    led.on()
+    sleep(0.5)
+    led.off()
+    sleep(0.5)
+
+def R():
+    dot()
+    dash()
+    dot()
+
+def E():
+    dot()
+
+def B():
+    dash()
+    dot()
+    dot()
+    dot()
+def say_my_name():
+        R()
+        E()
+        B()
+	
+button.when_pressed = say_my_name
